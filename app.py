@@ -13,6 +13,7 @@ from views.user import user_ns
 
 app = Flask(__name__)
 app.config.from_object(Config())
+app.config.from_envvar("APP_SETTINGS", silent=True)
 
 db.init_app(app)
 migrate = Migrate(app, db, render_as_batch=True)
